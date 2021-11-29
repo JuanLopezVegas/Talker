@@ -48,7 +48,7 @@
                     <p id="password_comparison"></p>
                     <button type="submit" class="btn btn-primary">Submit</button>
                 </form>
-            </div>
+            </div>  
 
             <div class="col-6">
                 <p>Hello and welcome to Talker! We are very happy that you want to join our great community!</p>
