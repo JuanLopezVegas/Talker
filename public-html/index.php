@@ -1,5 +1,6 @@
 <?php  session_start(); require('system.ctrl.php'); ?>
 
+<?php phpSendMail('zerocool1400@gmail.com', 'Hello motherFucker!', 'Welcome to the brotherhood');?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -21,6 +22,7 @@
 
         <hr>
         <br>
+
 
       <?php
         if (isset($_SESSION["msgid"]) && $_SESSION["msgid"]!=""){
@@ -48,7 +50,7 @@
                     <p id="password_comparison"></p>
                     <button type="submit" class="btn btn-primary">Submit</button>
                 </form>
-            </div>  
+            </div>
 
             <div class="col-6">
                 <p>Hello and welcome to Talker! We are very happy that you want to join our great community!</p>
