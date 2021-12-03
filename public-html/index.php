@@ -1,6 +1,6 @@
 <?php  session_start(); require('system.ctrl.php'); ?>
 
-<?php phpSendMail('zerocool1400@gmail.com', 'Hello motherFucker!', 'Welcome to the brotherhood');?>
+<?php ?>
 
 <!DOCTYPE html>
 <html lang="en">
