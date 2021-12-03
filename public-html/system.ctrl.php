@@ -32,9 +32,25 @@ function phpShowFeedback($feedback_id) {
 		$feedback_text="This email is already fucked up you pussy :)";
 		break;
 
+		case "805":
+		$feedback_type="danger";
+		$feedback_text="This email not registered come baby let's fuck!! :)";
+		break;
+
+		case "806":
+		$feedback_type="danger";
+		$feedback_text="You are already a memeber of the brothehood";
+		break;
+
+		case "807":
+		$feedback_type="danger";
+		$feedback_text="You can'd get in motherFucker, I caught you! :)";
+		break;
+
+
 		case "811":
 		$feedback_type="success";
-		$feedback_text="You Have Been officially fucked by Society by Andy Frisella";
+		$feedback_text="You Have Been officially fucked by Society by Andy Frisella. Sign in to get some pussy!!!";
 		break;
 
 		case "812":
