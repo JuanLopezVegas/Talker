@@ -47,7 +47,7 @@
                 <form name="formSignUp" action="signup.ctrl.php" method="post" novalidate>
                     <div class="form-group">
                         <label for="formSignUpEmail">Email address</label>
-                        <input type="email" <?php echo (phpShowEmailInputValue($_SESSION['formSignUpEmail'])); ?> class="form-control <?php if ($_SESSION['msgid']!='801' && $_SESSION['msgid']!='') {echo 'is-valid';} else    echo (phpShowInputFeedback($_SESSION['msgid'])[0]); ?>" id="formSignUpEmail" name="formSignUpEmail" placeholder="Enter your email address" required pattern="^[\w]{1,}[\w.+-]{0,}@[\w-]{2,}([.][a-zA-Z]{2,}|[.][\w-]{2,}[.][a-zA-Z]{2,})$">
+                        <input type="email" <?php echo (phpShowEmailInputValue($_SESSION['formSignUpEmail'])); ?> class="form-control <?php if ($_SESSION['msgid']!='801' && $_SESSION['msgid']!='') {echo 'is-valid';} else    echo (phpShowInputFeedback($_SESSION['msgid'])[0]) ; ?>" id="formSignUpEmail" name="formSignUpEmail" placeholder="Enter your email address" required pattern="^[\w]{1,}[\w.+-]{0,}@[\w-]{2,}([.][a-zA-Z]{2,}|[.][\w-]{2,}[.][a-zA-Z]{2,})$">
                         <?php if ($_SESSION["msgid"] == "801") {?>
                           <div class="invalid-feedback">
                             <?php echo (phpShowInputFeedback($_SESSION['msgid'])[1]); ?>
@@ -90,6 +90,7 @@
 
             var jsSignUpPassword = document.getElementById("formSignUpPassword");
             var jsSignUpPasswordConf = document.getElementById("formSignUpPasswordConf");
+            var jsPasswordRegexPattern = /(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@*$#]).{8,16}/;
 
             function jsSignUpValidatePassword() {
 
@@ -98,12 +99,26 @@
                 console.log('jsSignUpPassword = ' + jsSignUpPassword.value);
                 console.log('jsSignUpPasswordConf = ' + jsSignUpPasswordConf.value);
 
-                if(jsSignUpPassword.value != jsSignUpPasswordConf.value) {
-                    jsSignUpPasswordConf.setCustomValidity("Passwords don't match!");
+                if(!jsPasswordRegexPattern.test(jsSignUpPassword.value)){
+                    if (!document.getElementById("formSignUpPasswordInvalidFeedback")){
+                        jsSignUpPassword.classList.add("is-invalid");
+                        var newElement = document.createElement("div");
+                        newElement.setAttribute("id", "formSignUpPasswordInvalidFeedback");
+                        newElement.classList.add("invalid-feedback");
+                        var newElementContent = document.createTextNode("Password must be between 8 and 16 characters long, with at least one uppercase and lowercase character, one number and one special character (@, *, $ or #).");
+                        newElement.appendChild(newElementContent);
+                        jsSignUpPassword.parentNode.insertBefore(newElement, jsSignUpPassword.nextSibling);
+                    }
+                    document.getElementById("password_comparison").innerHTML = "<div class='alert alert-danger' role='alert'>Pattern not match Are you Dumb?</div>";
+                } else if(jsSignUpPassword.value != jsSignUpPasswordConf.value) {
+                    if (document.getElementById("formSignUpPasswordInvalidFeedback")){
+                        document.getElementById("formSignUpPasswordInvalidFeedback").parentElement.removeChild(document.getElementById("formSignUpPasswordInvalidFeedback"));
+                    }
+                    jsSignUpPassword.classList.remove("is-invalid");
+                    jsSignUpPassword.classList.add("is-valid");
                     document.getElementById("password_comparison").innerHTML = "<div class='alert alert-danger' role='alert'>Passwords don't match!</div>";
                 } else {
-                    jsSignUpPasswordConf.setCustomValidity('');
-                    document.getElementById("password_comparison").innerHTML = "";
+                     document.getElementById("password_comparison").innerHTML = "";
                 }
             }
 
