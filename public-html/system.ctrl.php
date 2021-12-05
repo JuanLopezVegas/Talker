@@ -32,14 +32,29 @@ function phpShowFeedback($feedback_id) {
 		$feedback_text="This email is already fucked up you pussy :)";
 		break;
 
+		case "805":
+		$feedback_type="danger";
+		$feedback_text="This email is not registered come join the PARTY :)";
+		break;
+
+		case "806":
+		$feedback_type="danger";
+		$feedback_text="Account already activated my fellow brother :)";
+		break;
+
+		case "807":
+		$feedback_type="danger";
+		$feedback_text="verification link is coorrupted, someone is trying to get in :)";
+		break;
+
 		case "811":
 		$feedback_type="success";
-		$feedback_text="You Have Been officially fucked by Society by Andy Frisella";
+		$feedback_text="You Have Been officially fucked by Society by Andy Frisella, you can sign in";
 		break;
 
 		case "812":
 		$feedback_type="warning";
-		$feedback_text="My brother Snow, check your sword before taking the black & joiniing the brothehood";
+		$feedback_text="My brother Snow, check your sword before taking the black & joiniing the brothehood and verify your commintment";
 		break;
 
 		default:
@@ -51,6 +66,37 @@ function phpShowFeedback($feedback_id) {
 	return '<div class="row"><div class="col-12"><div class="alert alert-' . $feedback_type . '" role="alert">' . $feedback_text . '</div></div></div>';
 }
 
+
+function phpShowInputFeedback($feedback_id) {
+	switch ($feedback_id) {
+		case "801":
+		$feedback_type="is-invalid";
+		$feedback_text="This is not a valid email address";
+		break;
+
+		case "802":
+		$feedback_type="is-invalid";
+		$feedback_text="Password must be between 8 and 16 characters long, with at least one uppercase and lowercase character, one number and one special character (@, *, $ or #).";
+		break;
+
+		case "803":
+		$feedback_type="is-invalid";
+		$feedback_text="Passwords don't match";
+		break;
+
+		case "805":
+		$feedback_type="is-invalid";
+		$feedback_text="This email is not registered!";
+		break;
+
+		default:
+		$feedback_type="is-invalid";
+		$feedback_text="Unspecified error or warning";
+		break;
+    }
+
+	return [$feedback_type, $feedback_text];
+}
 
 // Create, update or delete a record in the database
 function phpModifyDB($db_query, $db_data) {
