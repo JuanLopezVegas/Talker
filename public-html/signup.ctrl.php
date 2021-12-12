@@ -33,15 +33,17 @@
         $db_data = "";
         $verify_message = '
 
-      	Welcome to Talker! Thanks for signing up!<br><br>
-      	Your account has been created but before you can login you need to activate it with the link below.<br><br>
 
-      	Please click this link to activate your account:
-      	<a href="http://localhost/verify.php?email='.$user_email.'&hash='.$hashed_user_password.'">Verify your email</a>
+        	Welcome to Talker! Thanks for signing up!<br><br>
+        	Your account has been created but before you can login you need to activate it with the link below.<br><br>
+
+        	Please click this link to activate your account:
+        	<a href="http://localhost/verify.php?email='.$user_email.'&hash='.$hashed_user_password.'">Verify your email</a>
 
         ';
 
-        phpSendMail($user_email, 'verify your identity, futur 007', $verify_message); 
+        phpSendMail($user_email, 'Hello motherFucker! verify your account', $verify_message);
+
         // phpSendMail('zerocool1400@gmail.com', 'Hello motherFucker!', 'Welcome to the brotherhood');
       }else{
         $_SESSION["msgid"] = "804";
@@ -50,14 +52,17 @@
       header('Location: index.php');
   } else if (!$email_validation){
       $_SESSION["msgid"] = "801";
+      $_SESSION["formSignUpEmail"] = $user_email;
       header('Location: index.php');
   } else if (!$password_validation) {
       $_SESSION["msgid"] = "802";
+      $_SESSION["formSignUpEmail"] = $user_email;
       header('Location: index.php');
   } else if ($user_password != $_POST["formSignUpPasswordConf"]){
       $_SESSION["msgid"] = "803";
+      $_SESSION["formSignUpEmail"] = $user_email;
       header('Location: index.php');
   }
 
 
- ?>
+?>

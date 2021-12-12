@@ -10,26 +10,32 @@ use PHPMailer\PHPMailer\Exception;
 
 
 // Place directly inside Bootstrap container to keep the right structure of Bootstrap document
-function phpShowFeedback($feedback_id) {
+function phpShowSystemFeedback($feedback_id) {
 	switch ($feedback_id) {
-    case "801":
-    $feedback_type="danger";
-    $feedback_text="This is not a valid email address";
-    break;
-
-    case "802":
-    $feedback_type="danger";
-    $feedback_text="Password must be between 8 and 16 characters long, with at least one uppercase and lowercase character, one number and one special character (@, *, $ or #).";
-    break;
-
-    case "803":
-		$feedback_type="danger";
-		$feedback_text="Passwords don't match";
-		break;
 
 		case "804":
 		$feedback_type="danger";
 		$feedback_text="This email is already fucked up you pussy :)";
+		break;
+
+		case "806":
+		$feedback_type="danger";
+		$feedback_text="Account already activated my fellow brother :)";
+		break;
+
+		case "807":
+		$feedback_type="danger";
+		$feedback_text="verification link is coorrupted, someone is trying to get in :)";
+		break;
+
+		case "808":
+		$feedback_type="danger";
+		$feedback_text="Wrong email or password, come you IDIOT, learn to type :(";
+		break;
+
+		case "809":
+		$feedback_type="danger";
+		$feedback_text="Not so fast !! account not activated, check your email! :)";
 		break;
 
 		case "805":
@@ -55,36 +61,63 @@ function phpShowFeedback($feedback_id) {
 
 		case "812":
 		$feedback_type="warning";
-		$feedback_text="My brother Snow, check your sword before taking the black & joiniing the brothehood";
+		$feedback_text="My brother Snow, check your sword before taking the black & joiniing the brothehood and verify your commintment";
+		break;
+
+    }
+
+	return [$feedback_type, $feedback_text];
+}
+
+
+function phpShowInputFeedback($feedback_id) {
+	switch ($feedback_id) {
+		case "801":
+		$feedback_type="is-invalid";
+		$feedback_text="This is not a valid email address";
+		break;
+
+		case "802":
+		$feedback_type="is-invalid";
+		$feedback_text="Password must be between 8 and 16 characters long, with at least one uppercase and lowercase character, one number and one special character (@, *, $ or #).";
+		break;
+
+		case "803":
+		$feedback_type="is-invalid";
+		$feedback_text="Passwords don't match";
+		break;
+
+		case "805":
+		$feedback_type="is-invalid";
+		$feedback_text="This email is not registered!";
 		break;
 
 		default:
-		$feedback_type="danger";
+		$feedback_type="is-invalid";
 		$feedback_text="Unspecified error or warning";
 		break;
     }
 
-	return '<div class="row"><div class="col-12"><div class="alert alert-' . $feedback_type . '" role="alert">' . $feedback_text . '</div></div></div>';
+	return [$feedback_type, $feedback_text];
 }
-
 
 // Create, update or delete a record in the database
 function phpModifyDB($db_query, $db_data) {
-    global $connection;
+  global $connection;
 
-    $statement = $connection->prepare($db_query);
-    $statement->execute($db_data);
+  $statement = $connection->prepare($db_query);
+  $statement->execute($db_data);
 }
 
 // Get the information from the database
 function phpFetchDB($db_query, $db_data) {
-    global $connection;
+  global $connection;
 
-    $statement = $connection->prepare($db_query);
-    $statement->execute($db_data);
+  $statement = $connection->prepare($db_query);
+  $statement->execute($db_data);
 
-    //setting the fetch mode and returning the result
-    return $statement->fetch(PDO::FETCH_ASSOC);
+  //setting the fetch mode and returning the result
+  return $statement->fetch(PDO::FETCH_ASSOC);
 }
 
  function phpSendMail($to, $subject, $content) {
@@ -126,5 +159,14 @@ function phpFetchDB($db_query, $db_data) {
   }
 }
 
+function phpShowEmailInputValue($user_email) {
+  if ($user_email != "") {
+      $content="value='" . $user_email . "'";
+  }else{
+      $content="";
+  }
+
+  return $content;
+}
 
 ?>
