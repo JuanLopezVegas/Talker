@@ -21,9 +21,9 @@
       $hashed_user_password = password_hash($user_password, PASSWORD_DEFAULT);
 
     //checking if the submitted email is already in users table
-      // $db_data = array($user_email);
-      // $isAlreadySignedUp = phpFetchDB('SELECT user_email FROM user WHERE user_email = ?', $db_data);
-      // $db_data = "";
+      $db_data = array($user_email);
+      $isAlreadySignedUp = phpFetchDB('SELECT user_email FROM user WHERE user_email = ?', $db_data);
+      $db_data = "";
 
 
       //if no result is returned, insert new record to the table, otherwise display feedback
@@ -63,5 +63,4 @@
   }
 
 
- ?>
- 
+?>

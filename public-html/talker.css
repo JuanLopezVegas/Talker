@@ -1,0 +1,8 @@
+.sign-in-row {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgb(95, 120, 95) ;
+  margin-bottom: 30px;
+  padding: 10px 0 10px 0;
+}

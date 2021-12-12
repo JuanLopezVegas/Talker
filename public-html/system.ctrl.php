@@ -28,6 +28,16 @@ function phpShowSystemFeedback($feedback_id) {
 		$feedback_text="verification link is coorrupted, someone is trying to get in :)";
 		break;
 
+		case "808":
+		$feedback_type="danger";
+		$feedback_text="Wrong email or password, come you IDIOT, learn to type :(";
+		break;
+
+		case "809":
+		$feedback_type="danger";
+		$feedback_text="Not so fast !! account not activated, check your email! :)";
+		break;
+
 		case "811":
 		$feedback_type="success";
 		$feedback_text="You Have Been officially fucked by Society by Andy Frisella, you can sign in";
@@ -77,21 +87,21 @@ function phpShowInputFeedback($feedback_id) {
 
 // Create, update or delete a record in the database
 function phpModifyDB($db_query, $db_data) {
-    global $connection;
+  global $connection;
 
-    $statement = $connection->prepare($db_query);
-    $statement->execute($db_data);
+  $statement = $connection->prepare($db_query);
+  $statement->execute($db_data);
 }
 
 // Get the information from the database
 function phpFetchDB($db_query, $db_data) {
-    global $connection;
+  global $connection;
 
-    $statement = $connection->prepare($db_query);
-    $statement->execute($db_data);
+  $statement = $connection->prepare($db_query);
+  $statement->execute($db_data);
 
-    //setting the fetch mode and returning the result
-    return $statement->fetch(PDO::FETCH_ASSOC);
+  //setting the fetch mode and returning the result
+  return $statement->fetch(PDO::FETCH_ASSOC);
 }
 
  function phpSendMail($to, $subject, $content) {
@@ -134,13 +144,13 @@ function phpFetchDB($db_query, $db_data) {
 }
 
 function phpShowEmailInputValue($user_email) {
-    if ($user_email != "") {
-        $content="value='" . $user_email . "'";
-    }else{
-        $content="";
-    }
+  if ($user_email != "") {
+      $content="value='" . $user_email . "'";
+  }else{
+      $content="";
+  }
 
-    return $content;
+  return $content;
 }
 
 ?>
