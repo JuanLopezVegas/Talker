@@ -1,7 +1,6 @@
 <?php  session_start(); require('system.ctrl.php'); ?>
 <?php //?>
 
-
 <!DOCTYPE html>
 <html lang="en">
 	<head>
