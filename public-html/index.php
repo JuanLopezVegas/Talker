@@ -1,5 +1,14 @@
-<?php  session_start(); require('system.ctrl.php'); ?>
-<?php //?>
+<?php
+
+session_start();
+require('system.ctrl.php');
+
+//if session uid or cookie uid is not empty redirect to gate.php
+if ($_SESSION["uid"]!="" || $_COOKIE["cookieUserEmail"]!="") {
+	header('Location: gate.php');
+}
+
+?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -99,9 +108,13 @@
 
     </div>
 
-    <?php  $_SESSION["msgid"]="";  $_SESSION["formSignUpEmail"]=""; ?>
-
-
+		<?php
+			//empty the msgid id only if no user is signed in
+			if ($_SESSION["uid"]=="" || $_COOKIE["cookieUserEmail"]=="") {
+				$_SESSION["msgid"]="";
+			}
+			$_SESSION["formSignUpEmail"]="";
+		?>
 
     <script>
       var jsSignUpEmail = document.getElementById("formSignUpEmail");

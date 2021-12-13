@@ -15,7 +15,7 @@
   $user_password = $_POST["formSignUpPassword"];
   $user_password_pattern = "~(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@*$#]).{8,16}~";
   $password_validation = preg_match($user_password_pattern, $user_password);
-
+ 
   if ($email_validation && $password_validation && $user_password == $_POST["formSignUpPasswordConf"]){
     //hash the password before storing it to the database
       $hashed_user_password = password_hash($user_password, PASSWORD_DEFAULT);

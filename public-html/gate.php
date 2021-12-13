@@ -1,10 +1,24 @@
 <?php
 session_start(); require('system.ctrl.php');
 
-// if uid not set or empty, redirect to index.php.immediately
-if (!isset($_SESSION["uid"]) || $_SESSION["uid"]==""){
-  header('Location: index.php');
-}
+  //if session uid not set or empty, check if cookieUserEmail and cookieUserPassword exist and not empty
+  if (!isset($_SESSION["uid"]) || $_SESSION["uid"]=="") {
+  	//if cookieUserEmail and cookieUserPassword exist and not empty,
+  	//compare values with database and store session uid or redirect
+  	if (isset($_COOKIE["cookieUserEmail"]) && $_COOKIE["cookieUserEmail"]!="" && isset($_COOKIE["cookieUserPassword"]) && $_COOKIE["cookieUserPassword"]!="") {
+  		$db_data = array($_COOKIE["cookieUserEmail"]);
+  		//fetching the row by email, fetch returns the first (and only) result entry
+  		$dbUserRow = phpFetchDB('SELECT * FROM user WHERE user_email = ?', $db_data);
+  		$db_data = "";
+  		if (is_array($dbUserRow) && $_COOKIE["cookieUserPassword"] == $dbUserRow["user_password"]) {
+  			$_SESSION["uid"] = $dbUserRow["user_id"];
+  		}else{
+  			header('Location: index.php');
+  		}
+  	}else{
+  		header('Location: index.php');
+  	}
+  }
 ?>
 
 <!DOCTYPE html>
@@ -55,6 +69,10 @@ if (!isset($_SESSION["uid"]) || $_SESSION["uid"]==""){
 		<!-- SYSTEM-WIDE FEEDBACK -->
 
     <?php echo "User id is : " . $_SESSION["uid"]; ?>
+    <br>
+    <?php echo "cookieUserEmail = " . $_COOKIE["cookieUserEmail"]; ?>
+    <br>
+    <?php echo "cookieUserPassword = " . $_COOKIE["cookieUserPassword"]; ?>
 
 	</div>
 
