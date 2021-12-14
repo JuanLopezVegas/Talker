@@ -15,7 +15,7 @@
   $user_password = $_POST["formSignUpPassword"];
   $user_password_pattern = "~(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@*$#]).{8,16}~";
   $password_validation = preg_match($user_password_pattern, $user_password);
- 
+
   if ($email_validation && $password_validation && $user_password == $_POST["formSignUpPasswordConf"]){
     //hash the password before storing it to the database
       $hashed_user_password = password_hash($user_password, PASSWORD_DEFAULT);
@@ -31,20 +31,9 @@
         $db_data = array($user_email, $hashed_user_password, 0);
         phpModifyDB('INSERT INTO user (user_email, user_password, user_verified) values (?, ?, ?)', $db_data);
         $db_data = "";
-        $verify_message = '
+        phpSendVerificationEmail($user_email, $hashed_user_password);
 
-
-        	Welcome to Talker! Thanks for signing up!<br><br>
-        	Your account has been created but before you can login you need to activate it with the link below.<br><br>
-
-        	Please click this link to activate your account:
-        	<a href="http://localhost/verify.php?email='.$user_email.'&hash='.$hashed_user_password.'">Verify your email</a>
-
-        ';
-
-        phpSendMail($user_email, 'Hello motherFucker! verify your account', $verify_message);
-
-        // phpSendMail('zerocool1400@gmail.com', 'Hello motherFucker!', 'Welcome to the brotherhood');
+        // phpSendEmail('zerocool1400@gmail.com', 'Hello motherFucker!', 'Welcome to the brotherhood');
       }else{
         $_SESSION["msgid"] = "804";
       }

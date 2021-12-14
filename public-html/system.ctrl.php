@@ -35,7 +35,7 @@ function phpShowSystemFeedback($feedback_id) {
 
 		case "809":
 		$feedback_type="danger";
-		$feedback_text="Not so fast !! account not activated, check your email! :)";
+		$feedback_text="Not so fast !! account not activated, check your email! :)   <a href='resend.ctrl.php'>Resend verification email</a>";
 		break;
 
 		case "805":
@@ -43,15 +43,15 @@ function phpShowSystemFeedback($feedback_id) {
 		$feedback_text="This email not registered come baby let's fuck!! :)";
 		break;
 
-		case "806":
-		$feedback_type="danger";
-		$feedback_text="You are already a memeber of the brothehood";
-		break;
-
-		case "807":
-		$feedback_type="danger";
-		$feedback_text="You can'd get in motherFucker, I caught you! :)";
-		break;
+		// case "806":
+		// $feedback_type="danger";
+		// $feedback_text="You are already a memeber of the brothehood";
+		// break;
+		//
+		// case "807":
+		// $feedback_type="danger";
+		// $feedback_text="You can'd get in motherFucker, I caught you! :)";
+		// break;
 
 
 		case "811":
@@ -61,7 +61,7 @@ function phpShowSystemFeedback($feedback_id) {
 
 		case "812":
 		$feedback_type="warning";
-		$feedback_text="My brother Snow, check your sword before taking the black & joiniing the brothehood and verify your commintment";
+		$feedback_text="My brother Snow, check your sword (email) before taking the black & joiniing the brothehood and verify your commintment";
 		break;
 
     }
@@ -120,7 +120,7 @@ function phpFetchDB($db_query, $db_data) {
   return $statement->fetch(PDO::FETCH_ASSOC);
 }
 
- function phpSendMail($to, $subject, $content) {
+ function phpSendEmail($to, $subject, $content) {
   //Create a new PHPMailer instance
   $mail = new PHPMailer;
   //Tell PHPMailer to use SMTP
@@ -168,5 +168,20 @@ function phpShowEmailInputValue($user_email) {
 
   return $content;
 }
+
+function phpSendVerificationEmail($user_email, $hashed_user_password) {
+	$verify_message = '
+
+	Welcome to Talker! Thanks for signing up!<br><br>
+	Your account has been created but before you can login you need to activate it with the link below.<br><br>
+
+	Please click this link to activate your account:
+	<a href="http://localhost/verify.php?email='.$user_email.'&hash='.$hashed_user_password.'">Verify your email</a>
+
+	';
+
+	phpSendEmail($user_email, 'Verify your account', $verify_message);
+}
+
 
 ?>
