@@ -28,6 +28,11 @@ function phpShowSystemFeedback($feedback_id) {
 		$feedback_text="Can't you remind how to write your nickname? I must contain between 3 to 15 characters and only letters";
 		break;
 
+		case "211":
+		$feedback_type="success";
+		$feedback_text="data updated successfully :)";
+		break;
+
 		case "804":
 		$feedback_type="danger";
 		$feedback_text="This email is already fucked up you pussy :)";
