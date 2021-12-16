@@ -13,6 +13,21 @@ use PHPMailer\PHPMailer\Exception;
 function phpShowSystemFeedback($feedback_id) {
 	switch ($feedback_id) {
 
+		case "201":
+		$feedback_type="danger";
+		$feedback_text="Can't you remind how to write your first name? I must contain between 3 to 15 characters and only letters";
+		break;
+
+		case "202":
+		$feedback_type="danger";
+		$feedback_text="Can't you remind how to write your last name? I must contain between 3 to 15 characters and only letters";
+		break;
+
+		case "203":
+		$feedback_type="danger";
+		$feedback_text="Can't you remind how to write your nickname? I must contain between 3 to 15 characters and only letters";
+		break;
+
 		case "804":
 		$feedback_type="danger";
 		$feedback_text="This email is already fucked up you pussy :)";
