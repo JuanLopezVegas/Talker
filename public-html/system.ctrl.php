@@ -33,6 +33,11 @@ function phpShowSystemFeedback($feedback_id) {
 		$feedback_text="data updated successfully :)";
 		break;
 
+		case "212":
+		$feedback_type="success";
+		$feedback_text="data removed successfully :)";
+		break;
+
 		case "804":
 		$feedback_type="danger";
 		$feedback_text="This email is already fucked up you pussy :)";

@@ -1,17 +1,17 @@
-var jsSignUpEmail = document.getElementById("formSignUpEmail");
-var jsSignInEmail = document.getElementById("formSignInEmail");
-var jsEmailRegexPattern = /^[\w]{1,}[\w.+-]{0,}@[\w-]{2,}([.][a-zA-Z]{2,}|[.][\w-]{2,}[.][a-zA-Z]{2,})$/;
-var jsSignUpPassword = document.getElementById("formSignUpPassword");
-var jsSignInPassword = document.getElementById("formSignInPassword");
-var jsSignUpPasswordConf = document.getElementById("formSignUpPasswordConf");
-var jsPasswordRegexPattern = /(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@*$#]).{8,16}/;
+var jsSignUpEmail = document.getElementById('formSignUpEmail')
+var jsSignInEmail = document.getElementById('formSignInEmail')
+var jsEmailRegexPattern = /^[\w]{1,}[\w.+-]{0,}@[\w-]{2,}([.][a-zA-Z]{2,}|[.][\w-]{2,}[.][a-zA-Z]{2,})$/
+var jsSignUpPassword = document.getElementById('formSignUpPassword')
+var jsSignInPassword = document.getElementById('formSignInPassword')
+var jsSignUpPasswordConf = document.getElementById('formSignUpPasswordConf')
+var jsPasswordRegexPattern = /(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@*$#]).{8,16}/
 
-document.getElementById("formSignUpSubmit").disabled = true;
-document.getElementById("formSignUpSubmit").classList.remove("btn-success");
-document.getElementById("formSignUpSubmit").classList.add("btn-danger");
-document.getElementById("formSignInSubmit").disabled = true;
-document.getElementById("formSignInSubmit").classList.remove("btn-success");
-document.getElementById("formSignInSubmit").classList.add("btn-danger");
+document.getElementById('formSignUpSubmit').disabled = true
+document.getElementById('formSignUpSubmit').classList.remove('btn-success')
+document.getElementById('formSignUpSubmit').classList.add('btn-danger')
+document.getElementById('formSignInSubmit').disabled = true
+document.getElementById('formSignInSubmit').classList.remove('btn-success')
+document.getElementById('formSignInSubmit').classList.add('btn-danger')
 
 function jsSignUpSubmitEnable() {
   if (jsEmailRegexPattern.test(jsSignUpEmail.value) && jsPasswordRegexPattern.test(jsSignUpPassword.value) && jsSignUpPassword.value == jsSignUpPasswordConf.value) {

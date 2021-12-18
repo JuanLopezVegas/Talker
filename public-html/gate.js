@@ -1,14 +1,14 @@
-var jsSettingsBasicsFirstName = document.getElementById("formSettingsBasicsFirstName");
-var jsSettingsBasicsLastName = document.getElementById("formSettingsBasicsLastName");
-var jsSettingsBasicsNickName = document.getElementById("formSettingsBasicsNickName");
-var jsSettingsBasicsSubmit = document.getElementById("formSettingsBasicsSubmit");
-var jsSettingsBasicsRegexPatternName = /^[a-zA-Z]{3,15}$/;
+var jsSettingsBasicsFirstName = document.getElementById('formSettingsBasicsFirstName')
+var jsSettingsBasicsLastName = document.getElementById('formSettingsBasicsLastName')
+var jsSettingsBasicsNickName = document.getElementById('formSettingsBasicsNickName')
+var jsSettingsBasicsSubmit = document.getElementById('formSettingsBasicsSubmit')
+var jsSettingsBasicsRegexPatternName = /^[a-zA-Z]{3,15}$/
 
-jsSettingsBasicsSubmit.disabled = true;
-jsSettingsBasicsSubmit.classList.remove("btn-success");
-jsSettingsBasicsSubmit.classList.add("btn-danger");
+jsSettingsBasicsSubmit.disabled = true
+jsSettingsBasicsSubmit.classList.remove('btn-success')
+jsSettingsBasicsSubmit.classList.add('btn-danger')
 
-function jsSettingsBasicsSubmitEnable() {
+function jsSettingsBasicsSubmitEnable () {
   if (jsSettingsBasicsRegexPatternName.test(jsSettingsBasicsFirstName.value) ||
     jsSettingsBasicsRegexPatternName.test(jsSettingsBasicsLastName.value) ||
     jsSettingsBasicsRegexPatternName.test(jsSettingsBasicsNickName.value)) {

@@ -51,5 +51,16 @@
       }
     }
 
+    if(isset($_POST["formSettingsBasicsClear"])) {
+    	//update the database row by setting empty strings
+    	$db_data = array("", "", "", $_SESSION["uid"]);
+    	phpModifyDB('UPDATE user SET user_firstname = ?, user_lastname = ?, user_nickname = ? WHERE user_id = ?', $db_data);
+    	$db_data = "";
+
+    	//system feedback - your settings has been updated
+      	$_SESSION["msgid"] = "212";
+    }
+
+
     header('Location: gate.php?module=settings');
 ?>
