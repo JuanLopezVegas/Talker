@@ -13,20 +13,41 @@ use PHPMailer\PHPMailer\Exception;
 function phpShowSystemFeedback($feedback_id) {
 	switch ($feedback_id) {
 
-		case "201":
-		$feedback_type="danger";
-		$feedback_text="Can't you remind how to write your first name? I must contain between 3 to 15 characters and only letters";
-		break;
+		// case "201":
+		// $feedback_type="danger";
+		// $feedback_text="Can't you remind how to write your first name? I must contain between 3 to 15 characters and only letters";
+		// break;
+		//
+		// case "202":
+		// $feedback_type="danger";
+		// $feedback_text="Can't you remind how to write your last name? I must contain between 3 to 15 characters and only letters";
+		// break;
+		//
+		// case "203":
+		// $feedback_type="danger";
+		// $feedback_text="Can't you remind how to write your nickname? I must contain between 3 to 15 characters and only letters";
+		// break;
+		//
+		// case "204":
+		// $feedback_type="is-invalid";
+		// $feedback_text="Password must be between 8 and 16 characters long, with at least one uppercase and lowercase character, one number and one special character (@, *, $ or #).";
+		// break;
+		//
+		// case "205":
+		// $feedback_type="is-invalid";
+		// $feedback_text="Current password is invalid.";
+		// break;
+		//
+		// case "206":
+		// $feedback_type="is-invalid";
+		// $feedback_text="Password must be between 8 and 16 characters long, with at least one uppercase and lowercase character, one number and one special character (@, *, $ or #).";
+		// break;
+		//
+		// case "207":
+		// $feedback_type="is-invalid";
+		// $feedback_text="New password must be different from the current password.";
+		// break;
 
-		case "202":
-		$feedback_type="danger";
-		$feedback_text="Can't you remind how to write your last name? I must contain between 3 to 15 characters and only letters";
-		break;
-
-		case "203":
-		$feedback_type="danger";
-		$feedback_text="Can't you remind how to write your nickname? I must contain between 3 to 15 characters and only letters";
-		break;
 
 		case "211":
 		$feedback_type="success";
@@ -36,6 +57,11 @@ function phpShowSystemFeedback($feedback_id) {
 		case "212":
 		$feedback_type="success";
 		$feedback_text="data removed successfully :)";
+		break;
+
+		case "213":
+		$feedback_type="success";
+		$feedback_text="password changed successfully :)";
 		break;
 
 		case "804":
@@ -97,6 +123,42 @@ function phpShowSystemFeedback($feedback_id) {
 
 function phpShowInputFeedback($feedback_id) {
 	switch ($feedback_id) {
+
+		case "201":
+		$feedback_type="danger";
+		$feedback_text="Can't you remind how to write your first name? I must contain between 3 to 15 characters and only letters";
+		break;
+
+		case "202":
+		$feedback_type="danger";
+		$feedback_text="Can't you remind how to write your last name? I must contain between 3 to 15 characters and only letters";
+		break;
+
+		case "203":
+		$feedback_type="danger";
+		$feedback_text="Can't you remind how to write your nickname? I must contain between 3 to 15 characters and only letters";
+		break;
+
+		case "204":
+		$feedback_type="is-invalid";
+		$feedback_text="Password must be between 8 and 16 characters long, with at least one uppercase and lowercase character, one number and one special character (@, *, $ or #).";
+		break;
+
+		case "205":
+		$feedback_type="is-invalid";
+		$feedback_text="Current password is invalid.";
+		break;
+
+		case "206":
+		$feedback_type="is-invalid";
+		$feedback_text="Password must be between 8 and 16 characters long, with at least one uppercase and lowercase character, one number and one special character (@, *, $ or #).";
+		break;
+
+		case "207":
+		$feedback_type="is-invalid";
+		$feedback_text="New password must be different from the current password.";
+		break;
+
 		case "801":
 		$feedback_type="is-invalid";
 		$feedback_text="This is not a valid email address";
