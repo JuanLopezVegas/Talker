@@ -58,6 +58,10 @@ session_start(); require('system.ctrl.php');
 				<li class="nav-item <?php if ($_GET['module']=='') { echo 'active';} ?>">
 					<a class="nav-link" href="gate.php">Home <?php if ($_GET['module']=='') { ?> <span class="sr-only">(current)</span><?php } ?> </a>
 				</li>
+				<li class="nav-item <?php if ($_GET['module']=='messaging') { echo 'active';} ?>">
+					<a class="nav-link" href="gate.php?module=messaging">Messaging <?php if ($_GET['module']=='messaging') { ?> <span class="sr-only">(current)</span><?php } ?> </a>
+				</li>
+				<li class="nav-item">
 				<li class="nav-item <?php if ($_GET['module']=='settings') { echo 'active';} ?>">
 					<a class="nav-link" href="gate.php?module=settings">Settings <?php if ($_GET['module']=='settings') { ?> <span class="sr-only">(current)</span><?php } ?> </a>
 				</li>
@@ -65,6 +69,7 @@ session_start(); require('system.ctrl.php');
 					<a class="nav-link" href="logout.ctrl.php">Logout</a>
 				</li>
 			</ul>
+      <a class="nav-link-user" href="#"><?php echo $dbUserRow["user_email"]; ?></a>
 		</div>
 	</nav>
 
@@ -87,6 +92,10 @@ session_start(); require('system.ctrl.php');
     switch ($_GET["module"]) {
     	case "settings":
     	include('settings.php');
+    	break;
+
+    	case "messaging":
+    	include('messaging.php');
     	break;
 
     	default:
