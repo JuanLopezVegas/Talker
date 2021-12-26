@@ -44,7 +44,7 @@ session_start(); require('system.ctrl.php');
 		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
 
 		<!-- Talker CSS -->
-		<link rel="stylesheet" href="talker.css">
+		<link rel="stylesheet" type="text/css" href="talker.css">
 	</head>
 	<body>
 
