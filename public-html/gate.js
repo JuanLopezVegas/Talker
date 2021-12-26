@@ -11,6 +11,14 @@ function jsShowInputFeedback (elementId) {
     case 'formSettingsBasicsNickName':
     var feedbackMessage = 'Nickname must be between 3 and 15 characters long and can contain only letters.'
     break
+
+    case 'formMessagingRecipient':
+    var feedbackMessage = 'Choose a Recipient for the messages.'
+    break
+
+    case 'formMessagingContent':
+    var feedbackMessage = 'MEssage cannot be empty and cannot contain "<" and ">" characters'
+    break
   }
 
   return feedbackMessage
