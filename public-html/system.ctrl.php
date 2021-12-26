@@ -59,6 +59,11 @@ function phpShowSystemFeedback($feedback_id) {
 		$feedback_text="data removed successfully :)";
 		break;
 
+		case "311":
+		$feedback_type="success";
+		$feedback_text="MEssage sent successfully :)";
+		break;
+
 		case "213":
 		$feedback_type="success";
 		$feedback_text="password changed successfully :)";
@@ -157,6 +162,16 @@ function phpShowInputFeedback($feedback_id) {
 		case "207":
 		$feedback_type="is-invalid";
 		$feedback_text="New password must be different from the current password.";
+		break;
+
+		case "301":
+		$feedback_type="is-invalid";
+		$feedback_text="Choose email of your recipient.";
+		break;
+
+		case "302":
+		$feedback_type="is-invalid";
+		$feedback_text="Message cannot be empty and cannot contain '<' and '>' characters";
 		break;
 
 		case "801":
