@@ -23,6 +23,10 @@ function jsShowInputFeedback (elementId) {
     case 'formGroupName':
     var feedbackMessage = 'group name cannot be empty and cannot contain "<" and ">" characters'
     break
+
+    case 'formPostsContent':
+    var feedbackMessage = 'posts cannot be empty and cannot contain "<" and ">" characters'
+    break
   }
 
   return feedbackMessage
