@@ -59,15 +59,21 @@ function phpShowSystemFeedback($feedback_id) {
 		$feedback_text="data removed successfully :)";
 		break;
 
+		case "213":
+		$feedback_type="success";
+		$feedback_text="password changed successfully :)";
+		break;
+
 		case "311":
 		$feedback_type="success";
 		$feedback_text="MEssage sent successfully :)";
 		break;
 
-		case "213":
+		case "411":
 		$feedback_type="success";
-		$feedback_text="password changed successfully :)";
+		$feedback_text="Group has been created  successfully :)";
 		break;
+
 
 		case "804":
 		$feedback_type="danger";
@@ -172,6 +178,11 @@ function phpShowInputFeedback($feedback_id) {
 		case "302":
 		$feedback_type="is-invalid";
 		$feedback_text="Message cannot be empty and cannot contain '<' and '>' characters";
+		break;
+
+		case "401":
+		$feedback_type="is-invalid";
+		$feedback_text="Group name cannot be empty and cannot contain '<' and '>' characters";
 		break;
 
 		case "801":

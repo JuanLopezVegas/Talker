@@ -1,23 +1,6 @@
 <?php
-	$db_data = array($_SESSION["uid"]);
-	$dbUserRow = phpFetchDB('SELECT * FROM user WHERE user_id = ?', $db_data);
-	$db_data = "";
 
 
-
-if ($dbUserRow["user_verified"] == 0) {{}
-  ?>
-
-  <div class="jumbotron jumbotron-fluid">
-    <div class="container">
-      <h1 class="display-3">Access denied!</h1>
-      <p class="lead">You need to verify your email address before you can use this feature.</p>
-    </div>
-  </div>
-
-<?php
-
-} else {
 	$db_data = array();
   $dbRecipientsList = phpFetchAllDB('SELECT * FROM user', $db_data);
   $db_data = "";
@@ -111,6 +94,6 @@ phpModifyDB('UPDATE messages SET message_read_by_recipient = 1 WHERE message_rec
 $db_date = "";
 
 $_SESSION["messaging_recipient"]="";
-}
+
 
 ?>

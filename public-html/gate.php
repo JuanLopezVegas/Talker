@@ -87,6 +87,17 @@ session_start(); require('system.ctrl.php');
 		<?php } ?>
 		<!-- SYSTEM-WIDE FEEDBACK -->
 
+    <?php if ($dbUserRow["user_verified"] == 0) { ?>
+
+      <div class="jumbotron jumbotron-fluid">
+        <div class="container">
+          <h1 class="display-3">Access denied!</h1>
+          <p class="lead">You need to verify your email address before you can use this feature.</p>
+        </div>
+      </div>
+
+    <?php } else { ?>
+
     <!-- LOAD MODULE -->
     <?php
     switch ($_GET["module"]) {
@@ -98,11 +109,17 @@ session_start(); require('system.ctrl.php');
     	include('messaging.php');
     	break;
 
+    	case "group":
+    	include('group.php');
+    	break;
+
     	default:
     	break;
     }
     ?>
     <!-- LOAD MODULE -->
+
+    <?php } ?>
 
 <!--
     <?php echo "User id is : " . $_SESSION["uid"]; ?>
