@@ -1,11 +1,11 @@
-<?php
-	$db_data = array($_SESSION["uid"]);
-	$dbUserRow = phpFetchDB('SELECT * FROM user WHERE user_id = ?', $db_data);
-	$db_data = "";
-?>
 
 <h5>Basics</h5>
 <hr>
+<?php
+$db_data = array($_SESSION["uid"]);
+$dbUserRow = phpFetchDB('SELECT * FROM user WHERE user_id = ?', $db_data);
+$db_data = "";
+?>
 
 
 <div class="row">
