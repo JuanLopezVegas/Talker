@@ -49,6 +49,11 @@ function phpShowSystemFeedback($feedback_id) {
 		$feedback_text="Post has been   successfully sent:)";
 		break;
 
+		case "512":
+		$feedback_type="success";
+		$feedback_text="Post has been   successfully updated:)";
+		break;
+
 
 		case "804":
 		$feedback_type="danger";
@@ -239,7 +244,7 @@ function phpGetGroupOwnerID($group_id) {
 function phpSendEmail($to, $subject, $content) {
   //Create a new PHPMailer instance
   $mail = new PHPMailer;
-   //Tell PHPMailer to use SMTP
+    //Tell PHPMailer to use SMTP
   $mail->isSMTP();
   //Enable SMTP debugging
   // 0 = off (for production use)
