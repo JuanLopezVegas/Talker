@@ -13,41 +13,6 @@ use PHPMailer\PHPMailer\Exception;
 function phpShowSystemFeedback($feedback_id) {
 	switch ($feedback_id) {
 
-		// case "201":
-		// $feedback_type="danger";
-		// $feedback_text="Can't you remind how to write your first name? I must contain between 3 to 15 characters and only letters";
-		// break;
-		//
-		// case "202":
-		// $feedback_type="danger";
-		// $feedback_text="Can't you remind how to write your last name? I must contain between 3 to 15 characters and only letters";
-		// break;
-		//
-		// case "203":
-		// $feedback_type="danger";
-		// $feedback_text="Can't you remind how to write your nickname? I must contain between 3 to 15 characters and only letters";
-		// break;
-		//
-		// case "204":
-		// $feedback_type="is-invalid";
-		// $feedback_text="Password must be between 8 and 16 characters long, with at least one uppercase and lowercase character, one number and one special character (@, *, $ or #).";
-		// break;
-		//
-		// case "205":
-		// $feedback_type="is-invalid";
-		// $feedback_text="Current password is invalid.";
-		// break;
-		//
-		// case "206":
-		// $feedback_type="is-invalid";
-		// $feedback_text="Password must be between 8 and 16 characters long, with at least one uppercase and lowercase character, one number and one special character (@, *, $ or #).";
-		// break;
-		//
-		// case "207":
-		// $feedback_type="is-invalid";
-		// $feedback_text="New password must be different from the current password.";
-		// break;
-
 
 		case "211":
 		$feedback_type="success";
@@ -72,6 +37,11 @@ function phpShowSystemFeedback($feedback_id) {
 		case "411":
 		$feedback_type="success";
 		$feedback_text="Group has been created  successfully :)";
+		break;
+
+		case "412":
+		$feedback_type="success";
+		$feedback_text="Group name has been changed   successfully :)";
 		break;
 
 		case "511":
@@ -109,17 +79,6 @@ function phpShowSystemFeedback($feedback_id) {
 		$feedback_type="danger";
 		$feedback_text="This email not registered come baby let's fuck!! :)";
 		break;
-
-		// case "806":
-		// $feedback_type="danger";
-		// $feedback_text="You are already a memeber of the brothehood";
-		// break;
-		//
-		// case "807":
-		// $feedback_type="danger";
-		// $feedback_text="You can'd get in motherFucker, I caught you! :)";
-		// break;
-
 
 		case "811":
 		$feedback_type="success";
@@ -268,11 +227,19 @@ function phpGetGroupName($group_id) {
 	return $db_result['group_name'];
 }
 
+// Return group's owner id based on group's id
+function phpGetGroupOwnerID($group_id) {
+	$db_data = array($group_id);
+	$db_result = phpFetchDB('SELECT group_owner_id FROM groups WHERE group_id = ?', $db_data);
+	return $db_result['group_owner_id'];
+}
+
+
 
 function phpSendEmail($to, $subject, $content) {
   //Create a new PHPMailer instance
   $mail = new PHPMailer;
-  //Tell PHPMailer to use SMTP
+   //Tell PHPMailer to use SMTP
   $mail->isSMTP();
   //Enable SMTP debugging
   // 0 = off (for production use)
