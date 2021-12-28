@@ -44,11 +44,16 @@ function phpShowSystemFeedback($feedback_id) {
 		$feedback_text="Group name has been changed   successfully :)";
 		break;
 
+		case "413":
+		$feedback_type="success";
+		$feedback_text="Group has been deleted   successfully :)";
+		break;
+
 		case "511":
 		$feedback_type="success";
 		$feedback_text="Post has been   successfully sent:)";
 		break;
-  
+
 		case "512":
 		$feedback_type="success";
 		$feedback_text="Post has been   successfully updated:)";
