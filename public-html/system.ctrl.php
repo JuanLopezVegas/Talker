@@ -48,10 +48,15 @@ function phpShowSystemFeedback($feedback_id) {
 		$feedback_type="success";
 		$feedback_text="Post has been   successfully sent:)";
 		break;
-
+  
 		case "512":
 		$feedback_type="success";
 		$feedback_text="Post has been   successfully updated:)";
+		break;
+
+		case "513":
+		$feedback_type="success";
+		$feedback_text="Post has been   deleted:)";
 		break;
 
 
