@@ -8,3 +8,4 @@ $db_data = "";
 <hr>
 
 <p>You have <strong><?php echo $dbUserRow["COUNT(*)"]; ?></strong> unread messages.</p>
+  
