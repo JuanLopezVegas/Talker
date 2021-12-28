@@ -25,7 +25,7 @@
 			header('Location: index.php');
 
 		} else if (!password_verify($user_password, $dbUserRow["user_password"])) { //user OK, password WRONG
-
+ 
 			// echo "user ok, password wrong -> wrong email or password -> feedback message";
 			$_SESSION["msgid"] = "808";
 			header('Location: index.php');
@@ -36,7 +36,7 @@
 			$_SESSION["uid"] = $dbUserRow["user_id"];
 			setcookie("cookieUserEmail", $user_email, time()+60);
 			setcookie("cookieUserPassword", $dbUserRow['user_password'], time()+60);
-			header('Location: gate.php');
+			header('Location: gate.php?module=home');
 		}
 
 
